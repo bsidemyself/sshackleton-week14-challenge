@@ -1,4 +1,3 @@
-
 const router = require('express').Router();
 const user_routes = require('./userRoutes');
 const blog_routes = require('./blogRoutes');
