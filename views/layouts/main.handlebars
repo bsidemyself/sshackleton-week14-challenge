@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MVC Dev Blog</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Source+Sans+Pro'>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>
+        <a href="/">MVC Dev Blog</a>
+      </h1>
+        <nav>
+          <span><a href="/">Home</a></span> 
+          {{#if logged_in}}
+          <a href="/dashboard">Dashboard</a>
+          <button id="logout" class="btn-no-style">Logout</button>
+          {{else}}
+          <a href="/login">Login</a>
+          {{/if}}
+        </nav>
+    </header>
+    <main>
+      {{{ body }}}
+    </main>
+  </div>
+
+  {{#if logged_in}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
+
+</body>
+
+</html>
