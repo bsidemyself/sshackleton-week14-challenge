@@ -11,12 +11,12 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const hbs = exphbs.create({ helpers });
+
 
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-    maxAge: 300000,
+    maxAge: 1000 * 60 * 60 * 24,
     httpOnly: true,
     secure: false,
     sameSite: 'strict',
@@ -29,7 +29,11 @@ const sess = {
   })
 };
 
+
+
 app.use(session(sess));
+
+const hbs = exphbs.create({ helpers });
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');

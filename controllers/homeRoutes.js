@@ -11,14 +11,18 @@ router.get('/', async (req, res) => {
                 },
             ],
         });
-        const post = allPosts.get({ plain: true });
+        console.log(allPosts, 'line 14')
+        const posts = allPosts.map((blog) => blog.get({ plain: true })); 
+        console.log(posts, 'line 16')
+        //error must be line 18
         res.render('homepage', {
-            ...post, logged_in: req.session.logged_in
+            ...posts
         });
         } catch (err) {
         res.status(500).json(err);
         }
 });
+
 
 router.get('/blog/:id', async (req, res) => {
     try {
